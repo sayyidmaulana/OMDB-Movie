@@ -11,12 +11,16 @@ protocol OMDBPresenterInput {
     var view: OMDBViewProtocol? { get set }
     var interactor: OMDBInteractorProtocol? { get set }
     var router: RouteModuleProtocol? { get set }
+    var page: Int? { get set }
+    var keyword: String? { get set }
     
     func viewDidLoad()
     func numberOfRowsInSection() -> Int
     func viewModel(at indexPath: IndexPath) -> OMDBViewModel.Cell
     func searchOMDB(page: Int, keyword: String)
     func fetchOMDB(page: Int)
+    func updatePage(page: Int, keyword: String)
+    func getDataImage(path: String, completion: @escaping (Data) -> Void)
 }
 
 protocol OMDBPresenterOutput: OMDBPresenterInput {
@@ -31,6 +35,7 @@ class OMDBPresenter {
     var router: RouteModuleProtocol?
     
     var page: Int? = 1
+    var keyword: String? = ""
     
     func viewDidLoad() {
         view?.setupView()
@@ -53,6 +58,14 @@ class OMDBPresenter {
     
     func searchOMDB(page: Int, keyword: String) {
         interactor?.searchOMDB(page: page, keyword: keyword)
+    }
+    
+    func updatePage(page: Int, keyword: String) {
+        interactor?.updatePage(page: page, keyword: keyword)
+    }
+    
+    func getDataImage(path: String, completion: @escaping (Data) -> Void) {
+        interactor?.getImage(path: path, completion: completion)
     }
     
 }

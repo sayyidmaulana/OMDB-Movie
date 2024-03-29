@@ -142,8 +142,23 @@ extension OMDBViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let presenter = presenter else { return UICollectionViewCell() }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OMDBCell.cellID, for: indexPath) as? OMDBCell else { return UICollectionViewCell() }
         let viewModel = presenter.viewModel(at: indexPath)
+        self.presenter?.getDataImage(path: viewModel.image) { dataImage in
+            DispatchQueue.main.async {
+                cell.loadImage(from: dataImage)
+            }
+        }
         cell.set(viewModel: viewModel)
         return cell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height {
+            presenter?.fetchOMDB(page: 2)
+        }
+
+        if scrollView.contentOffset.y >= 0 {
+            presenter?.updatePage(page: self.presenter?.page ?? 1, keyword: self.presenter?.keyword ?? "")
+        }
     }
 }
 
@@ -151,6 +166,7 @@ extension OMDBViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         presenter?.searchOMDB(page: 1, keyword: text)
+        presenter?.keyword = text
         print(text)
     }
     

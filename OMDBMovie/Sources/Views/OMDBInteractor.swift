@@ -14,6 +14,8 @@ protocol OMDBInteractorProtocol {
     func searchOMDB(page: Int, keyword: String)
     func numberOfSection() -> Int
     func cellModel(at indexPath: IndexPath) -> OMDBViewModel.Cell
+    func getImage(path: String, completion: @escaping (Data) -> Void)
+    func updatePage(page: Int, keyword: String)
 }
 
 class OMDBInteractor: OMDBInteractorProtocol {
@@ -69,6 +71,23 @@ class OMDBInteractor: OMDBInteractorProtocol {
                 self.omdbViewModels = omdbItemModel
                 
                 self.presenter?.presentOMDB(data: omdbItemModel)
+            case .failure(let error):
+                self.presenter?.presentError(message: error.localizedDescription)
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func updatePage(page: Int, keyword: String) {
+        service.searchOMDB(page: page, keyword: keyword) { [weak self] result in
+            print(result)
+
+            guard let self else { return }
+            switch result {
+            case .success(let unsplash):
+                let omdbItem = unsplash.search.map { self.omdbViewModels(from: $0) }
+                self.omdbViewModels.cells.append(contentsOf: omdbItem)
+                self.presenter?.presentOMDB(data: self.omdbViewModels)
             case .failure(let error):
                 self.presenter?.presentError(message: error.localizedDescription)
                 print(error.localizedDescription)
