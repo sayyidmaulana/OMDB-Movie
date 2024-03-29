@@ -16,6 +16,16 @@
 		C18013772BB68E63002BD7A1 /* OMDBMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013762BB68E63002BD7A1 /* OMDBMovieTests.swift */; };
 		C18013812BB68E63002BD7A1 /* OMDBMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013802BB68E63002BD7A1 /* OMDBMovieUITests.swift */; };
 		C18013832BB68E63002BD7A1 /* OMDBMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013822BB68E63002BD7A1 /* OMDBMovieUITestsLaunchTests.swift */; };
+		C18013922BB68FE6002BD7A1 /* Extensions+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013912BB68FE6002BD7A1 /* Extensions+Constraints.swift */; };
+		C18013942BB68FF5002BD7A1 /* Extensions+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013932BB68FF5002BD7A1 /* Extensions+UIImageView.swift */; };
+		C18013972BB69027002BD7A1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013962BB69027002BD7A1 /* NetworkService.swift */; };
+		C18013992BB69039002BD7A1 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013982BB69039002BD7A1 /* DataFetcher.swift */; };
+		C180139D2BB6917E002BD7A1 /* OMDBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C180139C2BB6917E002BD7A1 /* OMDBCell.swift */; };
+		C180139F2BB69F39002BD7A1 /* OMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C180139E2BB69F39002BD7A1 /* OMDBViewController.swift */; };
+		C18013A12BB69F4F002BD7A1 /* OMDBInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013A02BB69F4E002BD7A1 /* OMDBInteractor.swift */; };
+		C18013A32BB69F63002BD7A1 /* OMDBPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013A22BB69F63002BD7A1 /* OMDBPresenter.swift */; };
+		C18013A52BB69F7C002BD7A1 /* OMDBEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013A42BB69F7C002BD7A1 /* OMDBEntity.swift */; };
+		C18013A72BB69F94002BD7A1 /* OMDBRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18013A62BB69F94002BD7A1 /* OMDBRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,16 @@
 		C180137C2BB68E63002BD7A1 /* OMDBMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OMDBMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18013802BB68E63002BD7A1 /* OMDBMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBMovieUITests.swift; sourceTree = "<group>"; };
 		C18013822BB68E63002BD7A1 /* OMDBMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C18013912BB68FE6002BD7A1 /* Extensions+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Constraints.swift"; sourceTree = "<group>"; };
+		C18013932BB68FF5002BD7A1 /* Extensions+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIImageView.swift"; sourceTree = "<group>"; };
+		C18013962BB69027002BD7A1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C18013982BB69039002BD7A1 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		C180139C2BB6917E002BD7A1 /* OMDBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBCell.swift; sourceTree = "<group>"; };
+		C180139E2BB69F39002BD7A1 /* OMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBViewController.swift; sourceTree = "<group>"; };
+		C18013A02BB69F4E002BD7A1 /* OMDBInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBInteractor.swift; sourceTree = "<group>"; };
+		C18013A22BB69F63002BD7A1 /* OMDBPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBPresenter.swift; sourceTree = "<group>"; };
+		C18013A42BB69F7C002BD7A1 /* OMDBEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBEntity.swift; sourceTree = "<group>"; };
+		C18013A62BB69F94002BD7A1 /* OMDBRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,7 @@
 		C180135E2BB68E5D002BD7A1 /* OMDBMovie */ = {
 			isa = PBXGroup;
 			children = (
+				C180138F2BB68F78002BD7A1 /* Sources */,
 				C180135F2BB68E5D002BD7A1 /* AppDelegate.swift */,
 				C18013612BB68E5D002BD7A1 /* SceneDelegate.swift */,
 				C18013632BB68E5D002BD7A1 /* ViewController.swift */,
@@ -125,6 +146,55 @@
 				C18013822BB68E63002BD7A1 /* OMDBMovieUITestsLaunchTests.swift */,
 			);
 			path = OMDBMovieUITests;
+			sourceTree = "<group>";
+		};
+		C180138F2BB68F78002BD7A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C180139A2BB6914E002BD7A1 /* Views */,
+				C18013952BB69014002BD7A1 /* Service */,
+				C18013902BB68FB8002BD7A1 /* Extension */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C18013902BB68FB8002BD7A1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C18013912BB68FE6002BD7A1 /* Extensions+Constraints.swift */,
+				C18013932BB68FF5002BD7A1 /* Extensions+UIImageView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C18013952BB69014002BD7A1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C18013962BB69027002BD7A1 /* NetworkService.swift */,
+				C18013982BB69039002BD7A1 /* DataFetcher.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C180139A2BB6914E002BD7A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C180139B2BB69162002BD7A1 /* Cell */,
+				C180139E2BB69F39002BD7A1 /* OMDBViewController.swift */,
+				C18013A02BB69F4E002BD7A1 /* OMDBInteractor.swift */,
+				C18013A22BB69F63002BD7A1 /* OMDBPresenter.swift */,
+				C18013A42BB69F7C002BD7A1 /* OMDBEntity.swift */,
+				C18013A62BB69F94002BD7A1 /* OMDBRouter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C180139B2BB69162002BD7A1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C180139C2BB6917E002BD7A1 /* OMDBCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +328,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18013A72BB69F94002BD7A1 /* OMDBRouter.swift in Sources */,
 				C18013642BB68E5D002BD7A1 /* ViewController.swift in Sources */,
+				C18013992BB69039002BD7A1 /* DataFetcher.swift in Sources */,
 				C18013602BB68E5D002BD7A1 /* AppDelegate.swift in Sources */,
+				C180139D2BB6917E002BD7A1 /* OMDBCell.swift in Sources */,
+				C18013922BB68FE6002BD7A1 /* Extensions+Constraints.swift in Sources */,
+				C180139F2BB69F39002BD7A1 /* OMDBViewController.swift in Sources */,
+				C18013A12BB69F4F002BD7A1 /* OMDBInteractor.swift in Sources */,
+				C18013942BB68FF5002BD7A1 /* Extensions+UIImageView.swift in Sources */,
+				C18013A32BB69F63002BD7A1 /* OMDBPresenter.swift in Sources */,
+				C18013972BB69027002BD7A1 /* NetworkService.swift in Sources */,
+				C18013A52BB69F7C002BD7A1 /* OMDBEntity.swift in Sources */,
 				C18013622BB68E5D002BD7A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
