@@ -32,5 +32,16 @@ final class OMDBMovieTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testWithData() {
+        let view = OMDBViewController()
+        let mockPresenter = OMDBPresenter()
+        view.presenter = mockPresenter
+        
+        view.setupView()
+        view.setupCollection()
+        
+        XCTAssertTrue(view.labelError.text == "Something went wrong!")
+    }
 
 }

@@ -13,7 +13,7 @@ protocol OMDBViewProtocol: AnyObject {
     func setupView()
     func setupCollection()
     func setupSearch()
-    func reloadUnsplash()
+    func reloadOMDB()
     func displayError(message: String)
 }
 
@@ -23,13 +23,13 @@ class OMDBViewController: UIViewController {
     
     var spinner = UIActivityIndicatorView(style: .large)
 
-    private let containerView: UIView = {
+    let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
-    fileprivate let imageError: UIImageView = {
+    let imageError: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class OMDBViewController: UIViewController {
         return img
     }()
     
-    fileprivate let labelError: UILabel = {
+    let labelError: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 32)
         label.text = "Something went wrong!"
@@ -47,7 +47,7 @@ class OMDBViewController: UIViewController {
         return label
     }()
 
-    fileprivate let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -119,7 +119,7 @@ class OMDBViewController: UIViewController {
 }
 
 extension OMDBViewController: OMDBViewProtocol {
-    func reloadUnsplash() {
+    func reloadOMDB() {
         collectionView.reloadData()
         self.spinner.isHidden = true
     }
@@ -156,7 +156,7 @@ extension OMDBViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if !searchBar.isEnabled {
-            presenter?.fetchUnsplash(page: 1)
+            presenter?.fetchOMDB(page: 1)
         }
     }
 }

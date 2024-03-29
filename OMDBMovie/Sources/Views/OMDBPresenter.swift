@@ -16,7 +16,7 @@ protocol OMDBPresenterInput {
     func numberOfRowsInSection() -> Int
     func viewModel(at indexPath: IndexPath) -> OMDBViewModel.Cell
     func searchOMDB(page: Int, keyword: String)
-    func fetchUnsplash(page: Int)
+    func fetchOMDB(page: Int)
 }
 
 protocol OMDBPresenterOutput: OMDBPresenterInput {
@@ -36,10 +36,10 @@ class OMDBPresenter {
         view?.setupView()
         view?.setupCollection()
         view?.setupSearch()
-        fetchUnsplash(page: 1)
+        fetchOMDB(page: 1)
     }
     
-    func fetchUnsplash(page: Int) {
+    func fetchOMDB(page: Int) {
         interactor?.getOMDBData(page: page)
     }
     
@@ -63,7 +63,7 @@ extension OMDBPresenter: OMDBPresenterOutput {
             view?.displayError(message: "There is no data shown right there!")
         } else {
             self.page = (self.page ?? 1) + 1
-            view?.reloadUnsplash()
+            view?.reloadOMDB()
         }
     }
     
