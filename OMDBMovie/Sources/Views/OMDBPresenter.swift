@@ -48,7 +48,7 @@ class OMDBPresenter {
     }
     
     func viewModel(at indexPath: IndexPath) -> OMDBViewModel.Cell {
-        interactor?.cellModel(at: indexPath) ?? OMDBViewModel.Cell(image: "")
+        interactor?.cellModel(at: indexPath) ?? OMDBViewModel.Cell(image: "", title: "")
     }
     
     func searchOMDB(page: Int, keyword: String) {

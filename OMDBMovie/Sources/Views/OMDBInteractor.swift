@@ -60,7 +60,20 @@ class OMDBInteractor: OMDBInteractorProtocol {
     }
     
     func searchOMDB(page: Int, keyword: String) {
-        
+        service.searchOMDB(page: page, keyword: keyword) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let omdb):
+                let omdbItem = omdb.search.map { self.omdbViewModels(from: $0) }
+                let omdbItemModel = OMDBViewModel(cells: omdbItem)
+                self.omdbViewModels = omdbItemModel
+                
+                self.presenter?.presentOMDB(data: omdbItemModel)
+            case .failure(let error):
+                self.presenter?.presentError(message: error.localizedDescription)
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func numberOfSection() -> Int {
@@ -74,6 +87,6 @@ class OMDBInteractor: OMDBInteractorProtocol {
 
 extension OMDBInteractor {
     private func omdbViewModels(from omdbResult: Search) -> OMDBViewModel.Cell {
-        return OMDBViewModel.Cell(image: omdbResult.poster)
+        return OMDBViewModel.Cell(image: omdbResult.poster, title: omdbResult.title)
     }
 }

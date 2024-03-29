@@ -166,7 +166,7 @@ extension OMDBViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.bounds.width / 3
-        let cellHeight: CGFloat = 200
+        let cellHeight: CGFloat = 350
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

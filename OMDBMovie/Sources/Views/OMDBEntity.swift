@@ -65,6 +65,7 @@ struct OMDBViewModel {
 
     struct Cell: OMDBCellViewModel {
         var image: String
+        var title: String
     }
     var cells: [Cell]
 

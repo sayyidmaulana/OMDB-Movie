@@ -13,14 +13,20 @@ protocol Service {
 }
 
 class NetworkService: Service {
-
-    private let urlString = "http://www.omdbapi.com/?s=friends&apikey="
+    private let keyword = "friends"
     private let key = "656e3517" /// remove this key if wanna showing error state
-    var query = "food"
 
     func request(page: Int, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
 
-        guard let url = URL(string: "\(urlString)\(key)")
+        var components = URLComponents()
+            components.scheme = "http"
+            components.host = "www.omdbapi.com"
+            components.queryItems = [
+                URLQueryItem(name: "s", value: keyword),
+                URLQueryItem(name: "apikey", value: key)
+            ]
+        
+        guard let url = components.url
         else { return }
 
         let task = createTask(url: url, completion: completion)
@@ -29,7 +35,15 @@ class NetworkService: Service {
 
     func requestSearch(page: Int, keyword: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
 
-        guard let url = URL(string: "\(urlString)\(key)\(keyword)")
+        var components = URLComponents()
+            components.scheme = "http"
+            components.host = "www.omdbapi.com"
+            components.queryItems = [
+                URLQueryItem(name: "s", value: keyword),
+                URLQueryItem(name: "apikey", value: key)
+            ]
+        
+        guard let url = components.url
         else { return }
 
         let task = createTask(url: url, completion: completion)
